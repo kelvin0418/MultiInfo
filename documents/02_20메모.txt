@@ -1,0 +1,394 @@
+https://blog.naver.com/ekffo8181/221432901025
+https://blog.naver.com/msmsp/221439005113
+https://blog.naver.com/bluei91147/221382321682
+https://blog.naver.com/toki_s/221449349899
+https://blog.naver.com/lilcomforts/221439279995
+
+
+02_20
+
+node.js
+
+https://nodejs.org/en/
+
+설치
+10.15.1LTS
+
+다운받아서 걍 넥스트 넥스트..
+
+교재는 카페
+
+WAS
+	요청에 응답할 수 있는 프로그램이 실행가능한 웹서버
+
+	심부름 하나 : 클라이언트의 요청 하나(첫)
+
+	Spring : CPU를 나눠서(멀티쓰레드) 요청들을 각자 처리(둘) 
+		 Java로 MultiThread Nlocking I/O WAS (하드웨어가 고생을 하는)
+		 
+	Node.js : 요청 작업 끝나기를 기다리지 않고
+		 JavaScript로 SingleThread Non-blocking I/O WAS (이걸로 스프링을 대체 할 수 있구요) 근데 대체하진 마시구
+		 Back-end 작업은 불편
+		 AJAX서버 (아마 니들이 쓴다면 이쪽)
+		 웹소켓서버 (아마 니들이 쓴다면 이쪽)
+		 블록체인서버 
+
+
+	*	*	*
+사과1 3분
+연필1 5분
+고등어1 7분
+
+첫번째 3+5+7
+
+두번째 분신술 연마 몸을3개
+각자각자각자 7분만에가능
+
+세번째 미리주문 중앙에 기다리다 과일아재가 소리침 야 다됐다 끝나면 가서 처리하는 시스템 7분
+	*	*	*
+
+
+
+Node.js : WAS
+	npm로 추가 add-on설치 가능
+
+	maven
+	pip3
+	apt-get
+
+쓸만한거 몇개 가져가자 cmd를 관리자 권한으로 켜서
+
+Node.js : WAS
+	cmd(관리자 권한)에서
+	npm install 모듈명 옵션
+
+옵션
+	-g : Node.js본체에 설치 (유틸리티개념)
+	-g를 안쓰면 : 프로젝트에 설치 (프로젝트 만들고 jar넣는방)
+
+	nodemon : 프로그램 자동 재시작 (되게 쓸만한 녀석)
+
+	npm install nodemon -g
+
+	express : WAS프로젝트 만들어주는 
+	express-generator@4
+
+	npm install express -g
+	npm install express-generator@4 -g
+
+Node.js : WAS + 자동재시작 + WAS프로젝트 만들기 편하게
+
+cmd기반
+프로젝트 만들기
+
+프로젝트 만들고 싶은 위치에 찾아가서 cmd
+
+C:\Users\soldesk\workspace\NewWeb
+
+우리가 익스프레스 깔아놨쥬? 거기서 명령어를
+
+	express 프로젝트명
+	express Feb20_NodeJS
+	
+	cd 프로젝트명
+	cd Feb20_NodeJS
+
+	npm install
+
+스타트는 할 필요 없대 저건 정품이래 하면 재시작해야하는데 우리가 노드몬 설치해놔서
+
+프로젝트 실행
+	
+	nodemon 파일명(자동 app.js)
+	nodemon app.js
+
+몽고디비랑 같은개념 저 cmd 끄면 다꺼짐 톰캣 그런거 필요없이 자체적으로 돌아감
+
+그래서 프로젝트 폴더 들어가면 app.js파일 이걸 수정 이클립스 켜라
+
+app.js를 수정
+
+그 app.js에서 
+
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+
+이걸 찾아서
+
+이거 위쪽에 
+
+// 포트번호 지정
+app.listen(7843);
+
+
+하고 저장하면 자동으로 저장도 해주고
+
+저 포트번호 들어가서 잘 뜨나 확인해보자
+
+그리고 아까 그거 있던거 두개 날리고
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+날려
+
+아무튼 너흰 응답에 응답하는 was가 필요한거지
+
+app.get('/nodejs.test');
+스프링같은거 /nodejs.test로 겟방식 주소 받으면 
+
+
+app.get('/nodejs.test'm function(req, res) {
+	
+});
+
+뒤에있는 콜백함수 실행
+첫번째자리 요청객체 두번째 응답객체
+
+
+
+첫번째 목표 저기서 파라메터값 받아라
+
+js죠 변수는 var로
+
+요청객체.쿼리.받을파라메터
+
+한글처리 그런거 없고 걍 utf-8
+
+
+여러분의 스프링도 실체는 저게 다죠 뭐 작업하게 편하게 한다고 jsp나오고 협업 어쩌구한다고 mvc 나오고
+
+근데 여기는 그런게 없엉
+
+그래서 백엔드 하고싶으면 뭐 <html>이러면 되는겨 옛날생각나죠?
+
+
+
+오늘목표 에이젝스 서버 요청했을때 제이슨 나오는거
+
+
+// ojdbc.jar
+// cx_Oracle
+// mongojs
+
+cmd가서
+
+아까 was 일단 돌고있는거 컨트롤c로 끝내고 바로 jar파일 넣는 개념으로
+
+	npm install mongojs
+
+설치하고 다시 was cmd가서
+
+다시 nodemon app.js 로 실행
+
+
+할라면 몽고디비 켜야
+
+was cmd는 살려놓으시고
+
+
+
+DB파일 저장될 폴더 하나 확보
+	D:\akari\mDB
+
+MongoDB 설치된 위치에서 cmd
+	C:\Program Files\MongoDB\Server\4.0\bin
+	
+	mongod -dbpath DB파일저장될폴더 --bind_ip_all
+	mongod -dbpath D:\akari\mDB --bind_ip_all
+
+MongoDB 설치된 위치에서 또 cmd
+	mongo --host IP주소
+	mongo --host 172.16.4.203
+
+그래서 cmd 3개째 거기서 명령어 치면 되죠
+
+	use xe
+
+	db.테이블명.명령어
+
+	db.feb20_snack.insert({_id:'치킨팝', price:6000});
+
+	db.feb20_snack.find();
+
+좀 넣고
+이클립스가자
+해서 /insert.test로 요청받으면
+
+뭐 부르는거 보면 리콰이어 막 되어있쥬
+
+몽고디비 부르고
+var db = require('mongojs')('주소/DB이름', ['테이블명', '테이블명', ...]);
+
+var db = require('mongojs')('172.16.4.203/xe', ['feb20_snack']);
+
+이런식이겠지
+
+// mongodb : nosql=>javascript메소드
+
+걍 명령어 복붙해도 되쥬?
+
+
+인서트도 해봄
+
+
+
+	// js : 자료형 알아서 처리
+	// mongodb : 자료형에 제한없음 
+	// 이 둘이 서로 짝이 돼서 
+	// 확인해보면 프라이스에 따음표가 제한이 없으니 그냥 글자로 처리해버림
+	// js에서 str -> int 하고싶으면 1곱해버려
+
+
+	var db = require('mongojs')('172.16.4.203/xe', ['feb20_snack']);
+	var n = req.query.name;
+	var p = req.query.price * 1; 				// str -> int 곱하기1해버리면 숫자로 나오죠
+	db.feb20_snack.insert({_id:n, price:p}, function(err, result) {
+		res.send(result);
+	});
+
+
+
+
+좋은데
+
+TomcatWAS : Spring
+Node.js : AJAX서버
+
+Node.js + Oracle : 자료는? 인터넷에서 좀 찾아봐야
+
+그래서 페이스북은 이걸로 되어있져
+
+
+
+
+
+
+프로젝트
+
+문서를 어제 하던거에
+
+주제
+
+조
+
+뭘 하는지
+
+왜 하는지
+---------------------------
+설계 (조원들끼리 시시콜콜한거 다 정해가지고)
+	use-case diagram
+ppt를 뒤에다가 붙여나가자
+사람그림있는 저거를
+
+그 기능 하나하나별로 상세한 설명이 들어가는것이 정석
+
+만약 넣겠다면
+
+
+	1. use-case diagram
+	(기능별로 상세 설명)
+
+
+	2. ER diagram (DB를 그리는)
+
+	3. 디자인 대강 그려서 대충
+
+
+
+
+
+
+DBDesigner
+
+말그대ㅑ로 디비를 그리는거
+
+테이블
+
+join
+subquery
+
+
+니들 디자인부터 하고있는데
+
+그걸 물어보고있는데
+
+
+
+아무튼 저것도 문서에 집어넣어?
+
+간단하게 그리셔서 집어넣어
+
+
+
+
+
+
+	기능 (정하는게 생각보다 오래 걸리는 일)
+	1. use-case diagram
+	(기능별로 상세 설명)
+
+
+	2. ER diagram (DB를 그리는)
+
+	3. 디자인 대강 그려서 대충
+
+----------------------------------------
+개발 시작
+
+	스샷
+
+니들 중간 발표는 여기까지다-
+
+발사밐 목업?
+
+balsamiq mockups 3번할때 편하겠구여
+
+
+
+
+	*	*	* balsamiq mockups 무덤까지 가져간다
+
+Name: WeHasLinks 
+Serial: eJzzzU/OLi0odswsqglP9Ugs9snMyy6usUQCNc41hjV+7q5+AFbpDow= 
+
+Name: NGEN 
+Serial: eJzzzU/OLi0odswsqvFzd/WrsUQCNc41hmBRAO9oC9s= 
+
+Name: John Smith 
+Serial: eJzzzU/OLi0odswsqvHKz8hTCM7NLMmosUQCNc41hjV+7q5+AFMnDmc= 
+
+Name: Dave Trollington 
+Serial: eJzzzU/OLi0odswsqnFJLEtVCCnKz8nJzEsvyc+rsUQCNc41hjV+7q5+AMQ9EO8=
+
+	*	*	*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
